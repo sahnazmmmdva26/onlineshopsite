@@ -8,6 +8,10 @@ namespace onlineshopsite.Controllers
     {
         public IActionResult Index()
         {
+            List<Slide> Slides = new List<Slide>();
+            Slides.Add(new Slide() { Id = 1,Name="Men Fashion",Image="carousel-1.jpg",Description="wegwEGwegWEGD"});
+            Slides.Add(new Slide() { Id = 2, Name = "Women Fashion", Image = "carousel-2.jpg", Description = "rgWGWRGvrwg" });
+            Slides.Add(new Slide() { Id = 3, Name = "Kids Fashion", Image = "carousel-3.jpg" , Description = "EGwegWESGVwdsg" });
             List<Product> Products = new List<Product>();
             Products.Add(new Product()
             {
@@ -81,12 +85,13 @@ namespace onlineshopsite.Controllers
                 Price = 125,
                 Description = "Color\tBlue\r\nBrand\tBestOffice\r\nProduct Dimensions\t22.6\"D x 23.2\"W x 37\"H\r\nStyle\tModern\r\nMaterial\tNylon"
             });
-            List<Category> categories = new List<Category>();
-            categories.Add(new Category() { Id = 1, Name = "Clothes",Image="cat-1.jpg" });
-            categories.Add(new Category() { Id = 1, Name = "Electronics", Image = "cat-2.jpg" });
-            categories.Add(new Category() { Id = 1, Name = "Shoes", Image = "cat-3.jpg" });
-            categories.Add(new Category() { Id = 1, Name = "Cosmetics", Image = "cat-4.jpg" });
-            ViewBag.Categories = categories;
+            List<Category> Categories = new List<Category>();
+            Categories.Add(new Category() { Id = 1, Name = "Clothes",Image="cat-1.jpg" });
+            Categories.Add(new Category() { Id = 2, Name = "Electronics", Image = "cat-2.jpg" });
+            Categories.Add(new Category() { Id = 3, Name = "Shoes", Image = "cat-3.jpg" });
+            Categories.Add(new Category() { Id = 4, Name = "Cosmetics", Image = "cat-4.jpg" });
+            ViewBag.Categories = Categories;
+            ViewBag.Slides= Slides;
             return View(Products);
         }
         public IActionResult Detail()
